@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Property Tracker Using Hyperledger Fabric</title>
+</head>
+<body>
+    <div class="text-center">
+        <h1>Property Tracker</h1>
+        <button onclick="getAll()">Get All Properties</button>
+        <span>||</span>
+        <input id="search-input" type="text">
+        <button onclick="search()">Search</button>
+        <div id="show-properties"></div>
+    </div>
+
+    <div class="text-center form-container">
+        <h3>Create Property</h3>
+        <form id="createForm" action="http://localhost:3000/add-property" name="addProperty" onsubmit="addProperty(event)">
+            <div>
+                <label for="propertyId">Property ID</label>
+                <input name="propertyId" />
+            </div>
+            
+            <div>
+                <label for="city">City</label>
+                <input name="city" />
+            </div>
+
+            <div>
+                <label for="propertySize">Property Size</label>
+                <input name="propertySize" />
+            </div>
+
+            <div>
+                <label for="ownerName">Owner Name</label>
+                <input name="ownerName" />
+            </div>
+
+            <div>
+                <label for="propertyType">Property Type</label>
+                <input name="propertyType" />
+            </div>
+
+            <div>
+                <button type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="text-center form-container">
+        <h3>Update Property</h3>
+        <form id="updateForm" action="http://localhost:3000/update-property" name="updateProperty" onsubmit="updateProperty(event)">
+            <div>
+                <label for="updatePropertyId">Property ID</label>
+                <input name="updatePropertyId" />
+            </div>
+            
+            <div>
+                <label for="newOwnerName">New Owner Name</label>
+                <input name="newOwnerName" />
+            </div>
+
+            <div>
+                <button type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="text-center form-container">
+        <h3>View History</h3>
+        <form id="historyForm" onsubmit="viewHistory(event)" name="viewHistory">
+            <div>
+                <label for="historyPropertyId">Property ID</label>
+                <input name="historyPropertyId" />
+            </div>
+
+            <div>
+                <button type="submit">View History</button>
+            </div>
+        </form>
+    </div>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
